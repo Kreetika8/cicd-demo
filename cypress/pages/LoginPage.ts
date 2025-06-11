@@ -1,3 +1,6 @@
+import { faker } from '@faker-js/faker';
+
+
 class LoginPage {
   private readonly usernameInput = '[data-test="username"]';
   private readonly passwordInput = '[data-test="password"]';
@@ -58,18 +61,19 @@ class LoginPage {
     cy.get(this.passwordInput).should('be.visible').clear().type(password)
   }
 
-  enterInvalidUserame(username: string): this {
-    cy.get(this.usernameInput).clear().type(username)
-    return this
+ enterInvalidUsername(username: string = faker.internet.username()): this {
+    cy.get(this.usernameInput).clear().type(username);
+    return this;
   }
 
-  enterInlavalidPassword(password: string): this {
-    cy.get(this.passwordInput).clear().type(password)
-    return this
+   enterInvalidPassword(password: string = faker.internet.password()): this {
+    cy.get(this.passwordInput).clear().type(password);
+    return this;
   }
-
+    
 
   //Click
+  
   clickLogin(): void {
     cy.get(this.loginButton).should('be.visible').click()
   }

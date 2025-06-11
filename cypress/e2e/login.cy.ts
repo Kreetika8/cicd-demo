@@ -3,7 +3,6 @@ import LoginPage from '../pages/LoginPage'
 describe('Login Test', () => {
 
   it('TC01 Login Page Access', () => {
-
     LoginPage.visit()
     LoginPage.checkLoginPageElementsVisible();
   })
@@ -15,7 +14,6 @@ describe('Login Test', () => {
     LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
     LoginPage.clearFields()
     LoginPage.checkPlaceholders()
-
   })
 
   it('TC03 Valid Data Entry', () => {
@@ -28,7 +26,7 @@ describe('Login Test', () => {
 
   it('TC04 Invalid Data in One Field (username)', () => {
     LoginPage.visit()
-    LoginPage.enterInvalidUserame('kreetika123')
+    LoginPage.enterInvalidUsername()
     LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
     LoginPage.clickLogin()
     LoginPage.checkErrorMessage('Epic sadface: Username and password do not match any user in this service')
@@ -36,16 +34,16 @@ describe('Login Test', () => {
 
     it('TC04 Invalid Data in One Field (password)', () => {
     LoginPage.visit()
-    LoginPage.enterInvalidUserame(Cypress.env('DEFAULT_USERNAME'))
-    LoginPage.enterPassword('kreetika')
+    LoginPage.enterUsername(Cypress.env('DEFAULT_USERNAME'))
+    LoginPage.enterInvalidPassword()
     LoginPage.clickLogin()
     LoginPage.checkErrorMessage('Epic sadface: Username and password do not match any user in this service')
   })
 
   it('TC05 Invalid data in both field', () => {
     LoginPage.visit()
-    LoginPage.enterInvalidUserame('kreetika123')
-    LoginPage.enterPassword( 'dfsdfdsfds')
+    LoginPage.enterInvalidUsername()
+    LoginPage.enterInvalidPassword()
     LoginPage.clickLogin()
     LoginPage.checkErrorMessage('Epic sadface: Username and password do not match any user in this service')
   })
@@ -54,9 +52,7 @@ describe('Login Test', () => {
     LoginPage.visit()
     LoginPage.clickLogin()
     LoginPage.checkEmptyLoginError()
-
   })
 
-  
    
 })

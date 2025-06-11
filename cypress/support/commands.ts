@@ -23,3 +23,36 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// Cypress.Commands.add('addItemAndCheckCart', () => {
+  
+//     cy.get(inventoryPage.btn_inventory).each(($btn, index) => {
+//       cy.wrap($btn).should('have.text', 'Add to cart').click()
+
+//       const expectedCount = (index + 1).toString()
+//       cy.get(this.cartBadge).should('have.text', expectedCount)
+//     }).then(($buttons) => {
+//       const total = $buttons.length;
+
+//       cy.get(this.btn_inventory).each(($btn, index) => {
+//         cy.wrap($btn).should('have.text', 'Remove').click()
+
+//         const remaining = total - (index + 1);
+//       });
+//     })
+  
+// });
+
+// declare namespace Cypress {
+//   interface Chainable {
+//     /**
+//      * Custom command to add item and check cart count increases by 1
+//      */
+//     addItemAndCheckCart(): Chainable<void>;
+//   }
+// }
+
+// import InventoryPage from '../path/to/inventoryPage';
+
+// const inventoryPage = new InventoryPage();
+
