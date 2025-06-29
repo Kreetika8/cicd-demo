@@ -1,4 +1,4 @@
-import LoginPage from '../pages/LoginPage'
+import LoginPage from '../support/pages/LoginPage'
 
 describe('Login Test', () => {
 

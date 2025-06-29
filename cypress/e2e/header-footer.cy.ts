@@ -1,12 +1,10 @@
-import LoginPage from '../pages/LoginPage';
-import heaaderFooterPage from '../pages/HeaderFooter';
+import LoginPage from '../support/pages/LoginPage';
+import heaaderFooterPage from '../support/pages/HeaderFooter';
 
 describe('Header', () => {
   beforeEach(() => {
     LoginPage.visit()
-    LoginPage.enterUsername(Cypress.env('DEFAULT_USERNAME'))
-    LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
-    LoginPage.clickLogin()
+    cy.login(Cypress.env("DEFAULT_USERNAME"),Cypress.env("DEFAULT_PASSWORD"));
   })
 
   it('TC01 - Verify navbar visiblity', () => {

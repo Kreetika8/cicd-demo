@@ -1,13 +1,12 @@
-import LoginPage from '../pages/LoginPage';
-import ProductPage from '../pages/ProductPage';
-import inventoryPage from '../pages/ProductPage';
+import LoginPage from '../support/pages/LoginPage';
+import ProductPage from '../support/pages/ProductPage';
+import inventoryPage from '../support/pages/ProductPage';
 
 describe('Inventory Page', () => {
   beforeEach(() => {
     LoginPage.visit()
-    LoginPage.enterUsername(Cypress.env('DEFAULT_USERNAME'))
-    LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
-    LoginPage.clickLogin()
+
+    cy.login(Cypress.env("DEFAULT_USERNAME"),Cypress.env("DEFAULT_PASSWORD"));
   })
 
   it('TC01 - Ensure inventory page loads successfully', () => {
@@ -77,6 +76,16 @@ describe('Inventory Page', () => {
   it('TC10 - Check system handling for invalid product IDs', () => {
     ProductPage.checkInvalidProduct(-1)
   })
+
+  it('Check the contents of product using fixture data', () => {
+  cy.fixture('firstProduct.json').then((product) => {
+    cy.get(inventoryPage.products).first().find(inventoryPage.productTitle).click();
+    cy.get(inventoryPage.productTitle).should('have.text', product.name);
+    cy.get(inventoryPage.productPrice).should('have.text', product.price);
+    cy.get(inventoryPage.productDesc).should('have.text', product.description);
+  });
+})
+
 })
 
 

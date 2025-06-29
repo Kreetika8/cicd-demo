@@ -56,3 +56,10 @@
 
 // const inventoryPage = new InventoryPage();
 
+import LoginPage from './pages/LoginPage';
+Cypress.Commands.add('login',(username, password)=> {
+  LoginPage.enterUsername(username);
+  LoginPage.enterPassword(password);
+  LoginPage.clickLogin();
+
+})

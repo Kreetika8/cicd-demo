@@ -1,12 +1,14 @@
-import LoginPage from '../pages/LoginPage';
-import cartPage from '../pages/cart';
-import checkoutPage from '../pages/checkout';
+import LoginPage from '../support/pages/LoginPage';
+import cartPage from '../support/pages/cart';
+import checkoutPage from '../support/pages/checkout';
 describe('Cart Page', () => {
   beforeEach(() => {
     LoginPage.visit()
-    LoginPage.enterUsername(Cypress.env('DEFAULT_USERNAME'))
-    LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
-    LoginPage.clickLogin()
+    // LoginPage.enterUsername(Cypress.env('DEFAULT_USERNAME'))
+    // LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
+    // LoginPage.clickLogin()
+    cy.login(Cypress.env("DEFAULT_USERNAME"),Cypress.env("DEFAULT_PASSWORD"));
+
     cartPage.visitCartPage();
     cartPage.checkoutBtnClick();
   })
@@ -38,7 +40,7 @@ describe('Cart Page', () => {
     cy.get(checkoutPage.error).should('exist')
   })
 
-  it('TC04 - Test invalid characters in Zip/Postal Code', () => {
+  it('TC05 - Test invalid characters in Zip/Postal Code', () => {
     cy.get(checkoutPage.firstName).type('Kreetiks');
     cy.get(checkoutPage.lastName).type('Bhetuwal');
     cy.get(checkoutPage.postalCode).type('aabb@@##');
@@ -46,18 +48,18 @@ describe('Cart Page', () => {
     cy.get(checkoutPage.error).should('exist')
   })
 
-  it('TC04 - Test invalid characters in Zip/Postal Code', () => {
+  it('TC06 - Test invalid characters in Zip/Postal Code', () => {
     checkoutPage.validFieldDataEntry();
     checkoutPage.clickContinueBtn();
     cy.url().should('include', '/checkout-step-two.html');
   })
 
-  it('TC04 - Test invalid characters in Zip/Postal Code', () => {
+  it('TC07 - Test invalid characters in Zip/Postal Code', () => {
     checkoutPage.clickCancelBtn();
     cy.url().should('include', '/cart.html');
   })
 
-  it('TC04 - Verify placeholder text in input fields', () => {
+  it('TC08 - Verify placeholder text in input fields', () => {
     checkoutPage.checkoutUIPlaceholder();
   })
 

@@ -1,16 +1,17 @@
-import LoginPage from '../pages/LoginPage';
-import cartPage from '../pages/cart';
+import LoginPage from '../support/pages/LoginPage';
+import cartPage from '../support/pages/cart';
 
 describe('Cart', () => {
   beforeEach(() => {
     LoginPage.visit()
-    LoginPage.enterUsername(Cypress.env('DEFAULT_USERNAME'))
-    LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
-    LoginPage.clickLogin()
+    // LoginPage.enterUsername(Cypress.env('DEFAULT_USERNAME'))
+    // LoginPage.enterPassword(Cypress.env('DEFAULT_PASSWORD'))
+    // LoginPage.clickLogin()
+    cy.login(Cypress.env("DEFAULT_USERNAME"),Cypress.env("DEFAULT_PASSWORD"));
   })
 
   it('TC01 - Verify the UI of cart page', () => {
-    cartPage.addItemsToCart(2);
+    cartPage.addItemsToCart(10);
     cartPage.visitCartPage();
     cartPage.itemDetailsCartPage()
   })
@@ -25,7 +26,7 @@ describe('Cart', () => {
   it('TC03  - Remove cart items', () => {
     cartPage.addItemsToCart(1);
     cartPage.visitCartPage();
-    cartPage.removeCartItems();
+    cartPage.viewRemoveCartItems();
   })
 
   it('TC03  - Remove cart items', () => {
@@ -58,7 +59,6 @@ describe('Cart', () => {
     cy.get(cartPage.cartBadge).should('not.exist');
     cy.get('[data-test="checkout"]').should('be.visible').click();
     cy.url().should('include', '/cart.html');
-
   })
 
 
