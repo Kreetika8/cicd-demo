@@ -11,11 +11,6 @@ class checkoutPage {
   readonly error = '[data-test="error"]';
   // private readonly f = '[data-test="error"]';
 
-
-
-
-
-
   checkoutUI(): this {
     cy.url().should('include', '/checkout-step-one.html');
 
@@ -57,7 +52,7 @@ class checkoutPage {
   }
 
   emptyfielderror(): this {
-    assertionHelper.assertMsg(this.error,'Error: First Name is required')
+    assertionHelper.assertMsg(this.error, 'Error: First Name is required')
     // cy.get(this.error)
     //   .should('be.visible')
     //   .and('contain.text', 'Error: First Name is required')
@@ -65,9 +60,9 @@ class checkoutPage {
   }
 
   validFieldDataEntry(): this {
-    typingHelper.typeIntoInput(this.firstName,'Kreetika' )
-    typingHelper.typeIntoInput(this.lastName,'Bhetuwal' )
-    typingHelper.typeIntoInput(this.postalCode,'2400' )
+    typingHelper.typeIntoInput(this.firstName, 'Kreetika')
+    typingHelper.typeIntoInput(this.lastName, 'Bhetuwal')
+    typingHelper.typeIntoInput(this.postalCode, '2400')
 
 
     // cy.get(this.firstName).type('Kreetika');

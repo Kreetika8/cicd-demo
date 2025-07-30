@@ -66,10 +66,10 @@ class heaaderFooterPage {
   }
 
   footerVisibility(): this {
-        assertionHelper.assertVisible(this.socialMediaIcons);
-        assertionHelper.assertVisible(this.twitter);
-        assertionHelper.assertVisible(this.facebook);
-        assertionHelper.assertVisible(this.linkedin);
+    assertionHelper.assertVisible(this.socialMediaIcons);
+    assertionHelper.assertVisible(this.twitter);
+    assertionHelper.assertVisible(this.facebook);
+    assertionHelper.assertVisible(this.linkedin);
 
     // cy.get(this.socialMediaIcons).should('be.visible');
     // cy.get(this.twitter).should('be.visible');
@@ -79,9 +79,9 @@ class heaaderFooterPage {
   }
 
   footerLink(): this {
-    assertionHelper.assertLink(this.twitter,'twitter.com' )
-    assertionHelper.assertLink(this.facebook,'facebook.com' )
-    assertionHelper.assertLink(this.linkedin,'linkedin.com' )
+    assertionHelper.assertLink(this.twitter, 'twitter.com')
+    assertionHelper.assertLink(this.facebook, 'facebook.com')
+    assertionHelper.assertLink(this.linkedin, 'linkedin.com')
 
     // cy.get(this.twitter)
     //   .should('have.attr', 'href')

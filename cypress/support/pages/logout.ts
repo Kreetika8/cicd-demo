@@ -1,6 +1,6 @@
-class logoutPage{
+class logoutPage {
 
-  
+
 }
 
 export default new logoutPage;

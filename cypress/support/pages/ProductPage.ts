@@ -44,8 +44,7 @@ class inventoryPage {
       assertionHelper.assertVisible(this.productDesc);
       assertionHelper.assertVisible(this.productPrice);
       assertionHelper.assertVisible(this.productImg);
-assertionHelper.assertContains('button','Add to cart');
-
+      assertionHelper.assertContains('button', 'Add to cart');
 
       // cy.wrap(item).find(this.productTitle).should('be.visible')
       // cy.wrap(item).find(this.productDesc).should('be.visible')
@@ -93,10 +92,12 @@ assertionHelper.assertContains('button','Add to cart');
 
         if (remaining > 0) {
           assertionHelper.assertHaveText(this.cartBadge, remaining.toString())
-          // cy.get(this.cartBadge).should('have.text', remaining.toString());
+          // cy.get (this.cartBadge).should('have.text', remaining.toString());
+          //cy.get (this.cartBadge).should('have.text', remaining.toString());
+          //cy.get (this.cartBadge). should ('have.text', remaining.toString());
         } else {
-        
-         assertionHelper.assertNotExist(this.cartBadge)
+
+          assertionHelper.assertNotExist(this.cartBadge)
           // cy.get(this.cartBadge).should('not.exist');
         }
       });
@@ -131,13 +132,11 @@ assertionHelper.assertContains('button','Add to cart');
       assertionHelper.assertVisible(this.productDesc);
       assertionHelper.assertVisible(this.productPrice);
 
-
-
       // cy.get(this.productDetailImg).should('be.visible');
       // cy.get(this.productTitle).should('be.visible');
       // cy.get(this.productDesc).should('be.visible');
       // cy.get(this.productPrice).should('be.visible');
-      assertionHelper.assertContains('button','Add to cart')
+      assertionHelper.assertContains('button', 'Add to cart')
       // cy.contains('button', 'Add to cart').should('be.visible');
       cy.go('back');
     });
@@ -198,10 +197,11 @@ assertionHelper.assertContains('button','Add to cart');
     assertionHelper.assertUrlIncludes('/inventory')
     // cy.url().should('include', '/inventory');
     cy.visit(`/inventory-item.html?id=${id}`, { failOnStatusCode: false });
-    assertionHelper.assertContains('text','ITEM NOT FOUND')
+    assertionHelper.assertContains('text', 'ITEM NOT FOUND')
     // cy.contains('ITEM NOT FOUND').should('be.visible');
+    //cy.contains(')
 
-     cy.contains('button', 'Add to cart').should('have.attr', 'disabled');
+    cy.contains('button', 'Add to cart').should('have.attr', 'disabled');
     return this;
   }
 

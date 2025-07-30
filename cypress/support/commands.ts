@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // Cypress.Commands.add('addItemAndCheckCart', () => {
-  
+
 //     cy.get(inventoryPage.btn_inventory).each(($btn, index) => {
 //       cy.wrap($btn).should('have.text', 'Add to cart').click()
 
@@ -40,7 +40,7 @@
 //         const remaining = total - (index + 1);
 //       });
 //     })
-  
+
 // });
 
 // declare namespace Cypress {
@@ -57,7 +57,7 @@
 // const inventoryPage = new InventoryPage();
 
 import LoginPage from './pages/LoginPage';
-Cypress.Commands.add('login',(username, password)=> {
+Cypress.Commands.add('login', (username, password) => {
   LoginPage.enterUsername(username);
   LoginPage.enterPassword(password);
   LoginPage.clickLogin();

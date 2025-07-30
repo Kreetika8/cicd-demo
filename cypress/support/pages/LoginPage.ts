@@ -15,7 +15,7 @@ class LoginPage {
     cy.visit('/')
   }
 
-  checkLoginPageElementsVisible(): this {  
+  checkLoginPageElementsVisible(): this {
     assertions.assertVisible(this.usernameInput);
     assertions.assertVisible(this.passwordInput);
     assertions.assertVisible(this.loginButton);
@@ -58,9 +58,9 @@ class LoginPage {
 
   //ASERTIONS
   assertInventoryPageLoaded(): void {
-   assertions. assertUrlIncludes('/inventory')
+    assertions.assertUrlIncludes('/inventory')
     // cy.url().should('include', '/inventory')
-    
+
     cy.get('.inventory_list').should('exist').and('be.visible')
   }
 
@@ -72,7 +72,7 @@ class LoginPage {
   }
 
   enterPassword(password: string): void {
-     typingHelper.typeIntoInput(this.passwordInput, password)
+    typingHelper.typeIntoInput(this.passwordInput, password)
     // cy.get(this.passwordInput).should('be.visible').clear().type(password)
   }
 
