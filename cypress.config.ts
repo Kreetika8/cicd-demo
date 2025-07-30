@@ -16,6 +16,7 @@ module.exports = defineConfig({
 //     saveAllAttempts: true,
 //   },
   e2e: {
+     defaultCommandTimeout: 10000,
  baseUrl: process.env.BASE_URL,
    screenshotOnRunFailure: true,
     video: true,
