@@ -1,14 +1,26 @@
-name: CI
+name: Run Cypress Tests
 
-on: [push]
+on:
+  push:
+    branches: [main]  
+  pull_request:
+    branches: [main]
 
 jobs:
-  build:
+  cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run a script
-        run: echo "Hello, CI/CD!"
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npx cypress run
