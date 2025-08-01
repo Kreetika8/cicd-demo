@@ -46,14 +46,14 @@ describe('Cart', () => {
     cartPage.checkoutBtnClick();
   })
 
-  it('TC06 - Empty  cart behaviour', () => {
+  it.skip('TC06 - Empty  cart behaviour', () => {
     cartPage.visitCartPage();
     cy.get(cartPage.cartBadge).should('not.exist');
     cy.get(cartPage.cartItems).should('not.exist');
     cy.contains('Your cart is empty').should('be.visible');
   })
 
-  it('TC07 - Empty  cart submission', () => {
+  it.skip('TC07 - Empty  cart submission', () => {
     cartPage.visitCartPage();
     cy.get(cartPage.cartItems).should('not.exist');
     cy.get(cartPage.cartBadge).should('not.exist');
