@@ -53,7 +53,7 @@ describe('Cart', () => {
     cy.contains('Your cart is empty').should('be.visible');
   })
 
-  it.skip('TC07 - Empty  cart submission', () => {
+  it('TC07 - Empty  cart submission', () => {
     cartPage.visitCartPage();
     cy.get(cartPage.cartItems).should('not.exist');
     cy.get(cartPage.cartBadge).should('not.exist');
