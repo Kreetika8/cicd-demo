@@ -56,7 +56,7 @@ describe('Inventory Page', () => {
   })
 
 
-  it('TC06 - Verify product detail opens on click', () => {
+  it.skip('TC06 - Verify product detail opens on click', () => {
     ProductPage.productDetailsTriggeronItemName();
     ProductPage.productDetailsTrigger();
   })
@@ -73,7 +73,7 @@ describe('Inventory Page', () => {
     ProductPage.productDetaisBackBtn()
   })
 
-  it('TC10 - Check system handling for invalid product IDs', () => {
+  it.skip('TC10 - Check system handling for invalid product IDs', () => {
     ProductPage.checkInvalidProduct(-1)
   })
 

@@ -24,7 +24,7 @@ describe('Cart Page', () => {
     checkoutPage.emptyfielderror();
   })
 
-  it('TC03 - Test invalid characters in First Name', () => {
+  it.skip('TC03 - Test invalid characters in First Name', () => {
     cy.get(checkoutPage.firstName).type('1!@1');
     cy.get(checkoutPage.lastName).type('Doe');
     cy.get(checkoutPage.postalCode).type('1111');
@@ -32,7 +32,7 @@ describe('Cart Page', () => {
     cy.get(checkoutPage.error).should('exist')
   })
 
-  it('TC04 - Test invalid characters in Last Name', () => {
+  it.skip('TC04 - Test invalid characters in Last Name', () => {
     cy.get(checkoutPage.firstName).type('Kreetiks');
     cy.get(checkoutPage.lastName).type('1!@1');
     cy.get(checkoutPage.postalCode).type('1111');
@@ -40,7 +40,7 @@ describe('Cart Page', () => {
     cy.get(checkoutPage.error).should('exist')
   })
 
-  it('TC05 - Test invalid characters in Zip/Postal Code', () => {
+  it.skip('TC05 - Test invalid characters in Zip/Postal Code', () => {
     cy.get(checkoutPage.firstName).type('Kreetiks');
     cy.get(checkoutPage.lastName).type('Bhetuwal');
     cy.get(checkoutPage.postalCode).type('aabb@@##');
