@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: '0 0 * * 1'
 
 jobs:
   cypress-run:
@@ -27,3 +29,17 @@ jobs:
       - uses: cypress-io/github-action@v5
         with:
           browser: chrome
+
+      - name: Upload Cypress Videos
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Upload Cypress Screenshots
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
